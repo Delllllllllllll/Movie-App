@@ -29,7 +29,7 @@ export async function fetchMovieOrTvCasts(mediaType, id, signal) {
 
 
 export async function fetchMovieOrTvVideos(mediaType, id, signal) {
-    const response = await fetch(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}`);
+    const response = await fetch(`https://api.themoviedb.org/3/${mediaType}/${id}/videos?api_key=${API_KEY}`);
     if(!response.ok) throw new Error('Network response was not ok');
 
     return response.json();

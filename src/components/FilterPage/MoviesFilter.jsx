@@ -19,7 +19,6 @@ export function MoviesFilterPage() {
   const apiEndpoint =
     categoryMapping[filter] || filter.toLowerCase().replace(/\s+/g, "_");
 
-  console.log(apiEndpoint);
   const { data, error, totalPages, isLoading } = useMoviesOrTvSection(
     "movie",
     apiEndpoint,
@@ -45,7 +44,7 @@ export function MoviesFilterPage() {
                 .map((_, i) => <Card key={i} isLoading={true} />)
             ) : data && data.length > 0 ? (
               data.map((movie) => (
-                <Card key={movie.id} movieData={movie} isLoading={false} />
+                <Card key={movie.id} movieData={movie} isLoading={false} mediaType='movie' />
               ))
             ) : (
               <div className="col-span-full text-center py-8">

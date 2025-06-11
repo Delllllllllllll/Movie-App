@@ -17,9 +17,9 @@ function MovieDetails({ movieData }) {
   const posterUrl = movie.poster_path
     ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
     : "https://dummyimage.com/500x750/1a1a1a/ffffff&text=Movie+Poster+Not+Available";
+
   const { genres: genreList, error } = useGenres(mediaType);
   const { casts, error: castError } = useCasts(mediaType, id);
-  
   const movieDetailsGenresId = movie.genre_ids || [];
 
   const yearRelease = movie.release_date
@@ -57,7 +57,7 @@ function MovieDetails({ movieData }) {
             <div className="mt-10 mb-5">
               <h1 className="text-4xl md:text-4xl mb-4 font-primary font-bold">
                 {movie.original_title ||
-                  movie.title ||
+                  movie.name ||
                   "Movie Title Not Available"}
               </h1>
               <p className="font-primary mb-2">

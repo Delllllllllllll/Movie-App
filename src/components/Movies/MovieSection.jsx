@@ -1,4 +1,3 @@
-import React from "react";
 import Card from "./MovieCard";
 import { useMoviesOrTvSection } from "../../hooks/useMovies";
 
@@ -15,7 +14,7 @@ function MovieSection({ title, id }) {
         <div className="flex gap-4 pb-4 px-5">
           {data.map((movie) => {
             return <div key={movie.id} className="flex-shrink-0">
-              <Card movieData={movie} />
+              <Card movieData={movie} mediaType='movie' />
             </div>;
           })};
         </div>

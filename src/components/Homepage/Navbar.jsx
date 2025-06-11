@@ -119,7 +119,7 @@ function Navbar() {
                 </p>
 
                 {renderDropdown(movieCategories, showMovieDropdown, (item) => {
-                  navigate(`/movies/${item}`);
+                  navigate(`/movies/category/${item}`);
                   setShowMovieDropdown(false);
                 })}
               </div>
@@ -148,7 +148,7 @@ function Navbar() {
                   </svg>
                 </p>
                 {renderDropdown(tvCategories, showTVDropdown, (item) => {
-                  navigate(`/tv/${item}`);
+                  navigate(`/tv/category/${item}`);
                   setShowTVDropdown(false);
                 })}
               </div>

@@ -11,10 +11,13 @@ function App() {
     <div>
       <Routes>
         <Route path="/" element={<Hero />}></Route>
+        
         <Route path="/movie/:id" element={<MovieDetails />}></Route>
+        <Route path="/movies/category/:filter" element={<MoviesFilterPage />}></Route>
+        
         <Route path="/tv/:id" element={<MovieDetails />}></Route>
-        <Route path="/movies/:filter" element={<MoviesFilterPage />}></Route>
-        <Route path="/tv/:filter" element={<TVFilterPage />}></Route>
+        <Route path="/tv/category/:filter" element={<TVFilterPage />}></Route>
+        
         <Route path="*" element={<NotFoundPage />}></Route>
       </Routes>
     </div>
@@ -22,5 +25,3 @@ function App() {
 }
 
 export default App;
-
-

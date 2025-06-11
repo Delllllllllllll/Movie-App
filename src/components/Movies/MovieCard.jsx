@@ -9,13 +9,13 @@ function CardSkeleton() {
   );
 }
 
-function Card({ movieData, isLoading }) {
+function Card({ movieData, isLoading, mediaType}) {
   const navigate = useNavigate();
 
   const handleMovieCardClick = (e) => {
     e.preventDefault(); 
     window.scrollTo(0, 0); 
-    navigate(`/movie/${movieData.id}`, {
+    navigate(`/${mediaType}/${movieData.id}`, {
       state: { movieData }
     });
   };

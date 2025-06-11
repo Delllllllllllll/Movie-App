@@ -33,7 +33,7 @@ export function useMoviesOrTvSection(mediaType, type, page) {
       });
 
     return () => controller.abort();
-  }, [type, page]);
+  }, [mediaType, type, page]);
 
   return { data, error, totalPages, isLoading };
 }
