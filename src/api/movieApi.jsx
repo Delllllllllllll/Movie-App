@@ -34,4 +34,3 @@ export async function fetchMovieOrTvVideos(mediaType, id, signal) {
 
     return response.json();
 }
-

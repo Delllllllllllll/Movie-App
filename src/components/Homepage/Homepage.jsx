@@ -1,21 +1,26 @@
 import Navbar from "./Navbar";
 import MovieSection from "../Movies/MovieSection";
-// custom hooks
 import React, { useState, useEffect } from "react";
-import { useMoviesOrTvSection, useHeroMovieSlider } from "../../hooks/useMovies";
+import {
+  useMoviesOrTvSection,
+  useHeroMovieSlider,
+} from "../../hooks/useMovies";
 import { useLocation } from "react-router-dom";
-// States
-// Swiper Library
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
-import "swiper/css";
 import { EffectFade } from "swiper/modules";
+import "swiper/css";
 import "swiper/css/effect-fade";
 
 function Hero() {
   const location = useLocation();
   const [heroMovies, setHeroMovies] = useState([]);
-  const { data: popularMovies, error, totalPages, isLoading } = useMoviesOrTvSection('movie', "popular", 1);
+  const {
+    data: popularMovies,
+    error,
+    totalPages,
+    isLoading,
+  } = useMoviesOrTvSection("movie", "popular", 1);
 
   useEffect(() => {
     const fetchHeroMovies = async () => {
@@ -60,7 +65,7 @@ function Hero() {
         effect="fade"
         speed={1200}
         loop={heroMovies.length >= 3} // Only enable loop if enough slides
-        slidesPerView={1} 
+        slidesPerView={1}
         slidesPerGroup={1}
         className="relative w-full h-screen"
       >

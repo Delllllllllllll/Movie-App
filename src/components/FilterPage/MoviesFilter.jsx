@@ -28,6 +28,7 @@ export function MoviesFilterPage() {
   const getCurrentPage = (currentPage) => {
     setCurrentPage(currentPage);
   };
+
   return (
     <>
       <Navbar />
@@ -44,7 +45,12 @@ export function MoviesFilterPage() {
                 .map((_, i) => <Card key={i} isLoading={true} />)
             ) : data && data.length > 0 ? (
               data.map((movie) => (
-                <Card key={movie.id} movieData={movie} isLoading={false} mediaType='movie' />
+                <Card
+                  key={movie.id}
+                  movieData={movie}
+                  isLoading={false}
+                  mediaType="movie"
+                />
               ))
             ) : (
               <div className="col-span-full text-center py-8">
