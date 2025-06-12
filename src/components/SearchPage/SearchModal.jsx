@@ -11,13 +11,15 @@ function SearchModal({ isOpen, onClose }) {
 
   // fetch serach shows
   async function fetchSearchShow(q) {
+    const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
+
     if (!q) {
       setResults([]);
       return;
     }
     try {
       const response = await fetch(
-        `https://api.themoviedb.org/3/search/multi?api_key=25b4e220ac2e513e2c7fe6cd11c6bf7b&query=${q}`
+        `https://api.themoviedb.org/3/search/multi?api_key=${API_KEY}&query=${q}`
       );
       if (!response.ok) throw new Error("Network response was not ok");
       const data = await response.json();

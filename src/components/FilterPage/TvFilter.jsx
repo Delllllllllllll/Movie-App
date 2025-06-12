@@ -20,24 +20,17 @@ export function TVFilterPage() {
   const apiEndpoint =
     categoryMapping[filter] || filter.toLowerCase().replace(/\s+/g, "_");
 
-  console.log("TV Filter:", filter);
-  console.log("TV API Endpoint:", apiEndpoint);
 
   const { data, error, totalPages, isLoading } = useMoviesOrTvSection(
     "tv",
     apiEndpoint,
     Number(currentPage)
   );
-  useEffect(() => {
-    console.log("API Response:", data);
-    console.log("Endpoint:", apiEndpoint);
-  }, []);
-
+  
   const getCurrentPage = (currentPage) => {
     setCurrentPage(currentPage);
   };
 
-  // Add error handling display
   if (error) {
     console.error("TV Filter Error:", error);
   }

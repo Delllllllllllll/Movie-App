@@ -1,4 +1,4 @@
-const API_KEY = '25b4e220ac2e513e2c7fe6cd11c6bf7b';
+const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 
 export async function fetchMovieOrTv(mediaType, category, page, signal) {
     const response = await fetch(`https://api.themoviedb.org/3/${mediaType}/${category}?api_key=${API_KEY}&page=${Number(page)}`);

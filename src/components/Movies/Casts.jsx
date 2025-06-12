@@ -17,9 +17,9 @@ function Casts() {
       <div className="overflow-x-auto overflow-y-hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         <div className="flex items-start mx-auto gap-5 pb-4">
           {casts &&
-            casts.map((cast) => (
+            casts.map((cast, i) => (
               <div className="flex-shrink-0 w-30">
-                <Actor img={cast.profile_path} name={cast.name} role={cast.character} />
+                <Actor key={i} img={cast.profile_path} name={cast.name} role={cast.character} />
               </div>
             ))}
         </div>

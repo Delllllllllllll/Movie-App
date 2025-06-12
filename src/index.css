@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import "tailwindcss";
-/* API KEY 25b4e220ac2e513e2c7fe6cd11c6bf7b */
-/* Theme */
+
 @theme {
   --color-primary: #0A0423;
   --color-accent: #8B5CF6;
@@ -22,6 +21,38 @@
     scrollbar-width: none;
   }
 }
+
+/* hides all the element above > 780px below it hide them */
+@media (min-width: 780px) {
+  .max-xs\:hidden {
+    display: none;
+  }
+}
+
+/* hides all the child elements except the last elmenet */
+@media (max-width: 780px) {
+  .max-xs\:only-last-child > *:not(:last-child) {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .custom-lg-queries{
+    @apply top-[90%] left-[10%] right-[50];
+  }
+}
+
+@media (max-width: 750px) {
+  .custom-md-queries{
+    @apply top-[90%] left-[2%] right-[50];
+  }
+}
+@media (max-width: 700px) {
+  .custom-block-queries{
+    @apply block;
+  }
+}
+
 
 
 ::-webkit-scrollbar {

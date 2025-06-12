@@ -8,7 +8,7 @@ function MovieDetails({ movieData }) {
   const { id } = useParams();
   const location = useLocation();
   const movie = location.state?.movieData || movieData;
-  const mediaType = location.pathname.includes('tv') ? 'tv' : 'movie';
+  const mediaType = location.pathname.includes("tv") ? "tv" : "movie";
 
   const heroImg = movie.backdrop_path
     ? `https://image.tmdb.org/t/p/original${movie.backdrop_path}`
@@ -41,29 +41,34 @@ function MovieDetails({ movieData }) {
     <div>
       <Nav />
       <section
-        className="relative w-full h-screen bg-cover bg-center flex items-center justify-center text-white"
-        style={{ backgroundImage: `url(${heroImg})` }}
+        className="relative w-full min-h-screen bg-cover bg-center flex items-end text-white pt-[80px]"
+        style={{ backgroundImage: `url(${heroImg})` }} 
       >
         <div className="absolute inset-0 bg-gradient-to-r from-[#0a0423] via-gray-950/50 to-transparent"></div>
         <div className="absolute bottom-0 left-0 right-0 h-100 bg-gradient-to-t from-[#0a0423] to-transparent"></div>
 
-        <div className="absolute top-125 left-40 max-w-[80rem] transform -translate-y-1/2 z-10 text-left">
-          <div className="flex gap-10 space-y-5">
-            <img
-              className="h-[350px] shadow-2xl rounded"
-              src={posterUrl}
-              alt="card"
-            />
-            <div className="mt-10 mb-5">
-              <h1 className="text-4xl md:text-4xl mb-4 font-primary font-bold">
+        <div className="relative z-10 px-6 py-10 w-full max-w-[80rem]">
+          <div className="flex flex-col md:flex-row gap-6 md:gap-10">
+            <div className="flex justify-center md:justify-start">
+              <img
+                className="h-[300px] md:h-[350px] w-auto shadow-2xl rounded object-cover"
+                src={posterUrl}
+                alt="Movie Poster"
+              />
+            </div>
+
+            <div className="flex-1 text-center md:text-left">
+              <h1 className="text-3xl md:text-4xl mb-4 font-primary font-bold leading-tight">
                 {movie.original_title ||
                   movie.name ||
                   "Movie Title Not Available"}
               </h1>
-              <p className="font-primary mb-2">
+
+              <p className="font-primary mb-3 text-lg">
                 {yearRelease} ● {language}
               </p>
-              <div className="flex gap-2 mb-3">
+
+              <div className="flex flex-wrap gap-2 mb-4 justify-center md:justify-start">
                 {genreNames && genreNames.length > 0 ? (
                   genreNames.map((genre, index) => (
                     <div
@@ -79,15 +84,17 @@ function MovieDetails({ movieData }) {
                   </div>
                 )}
               </div>
-              <div className="max-w-[500px] leading-6 font-secondary font-normal text-[14px]">
+
+              <div className="max-w-[500px] leading-6 font-secondary font-normal text-[14px] mx-auto md:mx-0">
                 {movie.overview || "No overview available for this movie."}
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section className="min-h-screen bg-gradient-to-b from-[#0a0423] to-[#0a0423] text-white pt-27">
-        <div className="flex justify-center ">
+
+      <section className="min-h-screen bg-gradient-to-b from-[#0a0423] to-[#0a0423] text-white pt-16">
+        <div className="flex justify-center">
           <Casts />
         </div>
         <div className="">

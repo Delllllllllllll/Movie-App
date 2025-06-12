@@ -13,13 +13,14 @@ function Navbar() {
   const [showModal, setShowModal] = useState(false);
   const [showTVDropdown, setShowTVDropdown] = useState(false);
   const [showMovieDropdown, setShowMovieDropdown] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const moviesDropdownRef = useRef(null);
   const tvDropdownRef = useRef(null);
 
   const movieCategories = ["Popular", "Now Playing", "Upcoming", "Top Rated"];
   const tvCategories = ["Popular", "Airing Today", "On TV", "Top Rated"];
-  
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -71,19 +72,19 @@ function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 flex justify-between items-center p-4 z-50 font-primary mx-10 sm:mx-20">
+      <nav className="fixed top-0 left-0 right-0 flex justify-between items-center p-4 z-50 font-primary mx-3 sm:mx-20">
         {/* Logo */}
         <div>
           <img
             src={movieLogo}
             alt="Movie Logo"
-            className="rounded-full w-20 h-20"
+            className="rounded-full w-15 h-15 md:h-20 md:w-20"
           />
         </div>
 
         <div>
-          <ul className="list-none items-center gap-5 hidden md:flex">
-            <li className="flex items-center">
+          <ul className="flex list-none items-center gap-2 md:gap-5">
+            {/* <li className="flex items-center">
               <div className="flex items-center">
                 <Link
                   to="/"
@@ -92,7 +93,7 @@ function Navbar() {
                   Home
                 </Link>
               </div>
-            </li>
+            </li> */}
 
             <li className="relative" ref={moviesDropdownRef}>
               <div className="flex items-center cursor-pointer">
@@ -167,6 +168,25 @@ function Navbar() {
                 </svg>
               </button>
             </li>
+            {/* <li>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#FFFFFF"
+                className={`max-xs:hidden transition-all duration-500 ease-in-out ${
+                  isMenuOpen ? "scale-100 rotate-180" : "scale-100 rotate-0"
+                }`}
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+              >
+                {isMenuOpen ? (
+                  <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                ) : (
+                  <path d="M120-240v-80h480v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+                )}
+              </svg>
+            </li> */}
           </ul>
         </div>
       </nav>

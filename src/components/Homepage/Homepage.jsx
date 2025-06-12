@@ -21,6 +21,7 @@ function Hero() {
     totalPages,
     isLoading,
   } = useMoviesOrTvSection("movie", "popular", 1);
+  const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 
   useEffect(() => {
     const fetchHeroMovies = async () => {
@@ -29,7 +30,7 @@ function Hero() {
           popularMovies.map(async (movie) => {
             try {
               const response = await fetch(
-                `https://api.themoviedb.org/3/movie/${movie.id}?api_key=25b4e220ac2e513e2c7fe6cd11c6bf7b`
+                `https://api.themoviedb.org/3/movie/${movie.id}?api_key=${API_KEY}`
               );
               return await response.json();
             } catch (error) {
@@ -85,8 +86,8 @@ function Hero() {
                 <div className="absolute inset-0 bg-gradient-to-r from-[#0a0423] via-gray-950/50 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0f082e] to-transparent"></div>
 
-                <div className="absolute top-90 left-20 max-w-[500px] transform -translate-y-1/2 z-10 text-left">
-                  <h1 className="text-5xl md:text-5xl mb-4 font-primary font-bold">
+                <div className="absolute top-130 left-10 md:top-90 md:left-20 max-w-[500px] transform -translate-y-1/2 z-10 text-left">
+                  <h1 className="text-4xl md:text-5xl mb-4 font-primary font-bold">
                     {movie.original_title}
                   </h1>
                   <div>
@@ -109,7 +110,7 @@ function Hero() {
                         "Unknown"}
                     </span>
 
-                    <p className="text-[20px] md:text-[17px] mb-6 font-primary font-light mt-2">
+                    <p className="text-[15px] md:text-[17px] mb-6 font-primary font-light mt-2">
                       {movie.overview ||
                         "No overview available for this movie."}
                     </p>

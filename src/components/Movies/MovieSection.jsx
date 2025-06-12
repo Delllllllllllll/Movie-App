@@ -6,7 +6,6 @@ function MovieSection({ title, id }) {
     'movie', 
     title.toLowerCase().replace(" ", "_"), 1
   );
-  console.log(data)
   return (
     <div id={id}>
       <h3 className="text-2xl text-white font-primary my-3 ml-5">{title}</h3>
