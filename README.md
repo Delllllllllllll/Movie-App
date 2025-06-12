@@ -1,12 +1,32 @@
-# React + Vite
+# 🎬 Movie Explorer App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A sleek, modern movie discovery app built with JavaScript and the [TMDB API](https://www.themoviedb.org/documentation/api). Users can browse trending movies and TV shows, perform live searches, and explore details — all with a responsive design and smooth UI.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- 🔎 **Live Search** — Instant results as you type using debounced API calls.
+- 🎥 **Browse Trending** — Fetches and displays trending movies and shows.
+- 🧠 **Fetch API** — Cleanly structured Fetch requests for async data retrieval.
+- 💡 **Responsive UI** — Fully mobile-friendly layout using modern CSS (or Tailwind if used).
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠️ Technologies Used
+
+- **HTML5**
+- **CSS3** (or Tailwind CSS)
+- **JavaScript (ES6+)**
+- **TMDB API** for movie data
+- **Fetch API** for network requests
+
+---
+
+## 📦 Installation
+
+```bash
+git clone https://github.com/your-username/movie-app.git
+cd movie-app
+npm install  # if applicable
+```
